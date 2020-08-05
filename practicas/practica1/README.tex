@@ -1,0 +1,97 @@
+\documentclass[letterpaper,11pt]{article}
+
+% Soporte para los acentos.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}    
+% Idioma español.
+\usepackage[spanish,mexico, es-tabla]{babel}
+% Soporte de símbolos adicionales (matemáticas)
+\usepackage{multirow}
+\usepackage{amsmath}		
+\usepackage{amssymb}		
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+% Modificamos los márgenes del documento.
+\usepackage[lmargin=2cm,rmargin=2cm,top=2cm,bottom=2cm]{geometry}
+
+\title{Facultad de Ciencias, UNAM \\ Modelado y Programación \\ Práctica 1}
+\author{Hernández Morales José Ángel \\ No. de cuenta: 315137903 \\ 
+        Rubí Rojas Tania Michelle \\ No. de cuenta: 315121719}
+\date{31 de julio de 2020}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    % Parte teórica. 
+    \item Menciona los principios de diseño esenciales de los patrones Observer
+    y Strategy. Menciona una desventaja de cada patrón. 
+
+    \textsc{Solución:}
+    \begin{itemize}
+        \item Patrón Observer
+        
+        El patrón Observer puede ser utilizado cuando hay objetos que dependen 
+        de otro, necesitando ser notificados en caso de que se produzca algún 
+        cambio en él. Su objetivo es definir una dependencia uno a muchos entre
+        objetos, de tal forma que cuando el objeto cambie de estado, todos sus 
+        objetos dependientes sean notificados automáticamente.
+
+        Una desventaja de este patrón es la fuga de memoria, esto se debe a que 
+        para agregar o quitar observadores se tiene que hacer de manera explícita.
+        Aunque no se utilicen más los observadores sigue quedando la referencia 
+        para notificarlo y esto hace que el recolector de basura no lo elimine. 
+
+        \item Patrón Strategy 
+
+        El patrón Strategy ayuda a definir diferentes comportamientos o 
+        funcionalidades que pueden ser cambiadas en tiempo de ejecución. En el 
+        patrón Strategy creamos diferetes clases que representan estrategias y 
+        que podremos usar según alguna variación o input.
+
+        Una desventaja de este patrón es que si sólo tenemos un par de 
+        estrategias a implementar, puede ser un poco exagerado o excesivo
+        implementar este patrón, ya que complicamos en exceso la casuística. 
+        Otra desventaja podría ser que el cliente debe conocer todas las
+        diferencias de las estrategias. 
+    \end{itemize}
+
+    % Funcionalidad del prograna.
+    \item Funcionalidad del programa
+    
+    \begin{enumerate}
+        \item Primero, debemos posicionarnos dentro de la carpeta \textbf{src}.
+        Aquí se encuentran todas las clases de nuestra práctica.
+
+        \item Compilamos todas nuestras clases.
+        \begin{verbatim}
+            $ javac *.java
+        \end{verbatim}
+
+        \item Ejecutamos nuestro programa principal.
+        \begin{verbatim}
+            $ java Main 
+        \end{verbatim}
+    \end{enumerate}
+
+\end{enumerate}
+
+\begin{thebibliography} {9}
+    \bibitem{1}
+    \url{https://giovanni-sanchez.blogspot.com/2009/05/observer.html}
+
+    \bibitem{2}
+    \url{https://somospnt.com/blog/155-patron-de-comportamiento-observer}
+
+    \bibitem{3}
+    \url{https://experto.dev/patron-de-diseno-strategy-en-java/}
+
+    \bibitem{4}
+    \url{https://dev.to/mangelsnc/patron-estrategia-strategy-pattern-4b29}
+\end{thebibliography}
+
+\end{document}
