@@ -1,0 +1,75 @@
+\documentclass[letterpaper,11pt]{article}
+
+% Soporte para los acentos.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}    
+% Idioma español.
+\usepackage[spanish,mexico, es-tabla]{babel}
+% Soporte de símbolos adicionales (matemáticas)
+\usepackage{multirow}
+\usepackage{amsmath}		
+\usepackage{amssymb}		
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+% Modificamos los márgenes del documento.
+\usepackage[lmargin=2cm,rmargin=2cm,top=2cm,bottom=2cm]{geometry}
+
+\title{Facultad de Ciencias, UNAM \\ Modelado y Programación \\ Práctica 2}
+\author{Hernández Morales José Ángel \\ No. de cuenta: 315137903 \\ 
+        Rubí Rojas Tania Michelle \\ No. de cuenta: 315121719}
+\date{07 de agosto de 2020}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    % Parte teórica.
+    \item Menciona los principios de diseño esenciales de los patrones Decorator 
+    y Adapter. Menciona una desventaja de cada patrón.
+
+    \textsc{Solución:}
+    \begin{enumerate}
+        \item Patrón Decorator 
+        
+        Permite agregar nuevas funcionalidades a las clases sin modificar su 
+        estructura. El concepto de este patrón es agregar de forma dinámica 
+        nuevo comportamiento o funcionalidades a la clase principal. 
+
+        Una desventaja es la mantenibilidad del código ya que este patrón crea 
+        muchos decoradores similares que a veces son difíciles de mantener y 
+        distinguir. 
+
+        \item Patrón Adapter
+    \end{enumerate}
+
+    % Funcionalidad del programa.
+    \item Funcionalidad del programa
+    \begin{enumerate}
+        \item Primero, debemos posicionarnos dentro de la carpeta \textbf{src}.
+        Aquí se encuentran todas las clases de nuestra práctica.
+
+        \item Compilamos todas nuestras clases.
+        \begin{verbatim}
+            $ javac *.java
+        \end{verbatim}
+
+        \item Ejecutamos nuestro programa principal.
+        \begin{verbatim}
+            $ java Main 
+        \end{verbatim}
+    \end{enumerate}
+
+    \begin{thebibliography} {9}
+        \bibitem{1}
+        \url{https://experto.dev/patron-de-diseno-decorator-en-java/}
+
+        \bibitem{2}
+        \url{https://www.codeproject.com/tips/468951/decorator-design-pattern-in-java}
+        
+    \end{thebibliography}
+\end{enumerate}
+\end{document}
