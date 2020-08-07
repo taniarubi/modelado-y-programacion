@@ -37,13 +37,27 @@
         
         Permite agregar nuevas funcionalidades a las clases sin modificar su 
         estructura. El concepto de este patrón es agregar de forma dinámica 
-        nuevo comportamiento o funcionalidades a la clase principal. 
+        nuevo comportamiento o funcionalidades a la clase principal, es decir, 
+        vamos a \textit{decorar} los objetos para darles más funcionalidad de 
+        la que tienen en un principio.
 
         Una desventaja es la mantenibilidad del código ya que este patrón crea 
         muchos decoradores similares que a veces son difíciles de mantener y 
         distinguir. 
 
         \item Patrón Adapter
+        
+        Este patrón sirve cuando tenemos interfaces diferentes o incompatibles 
+        entre sí y necesitamos que el cliente pueda usar ambas del mismo 
+        modo. Adapter convierte las interfaces existentes en una nueva interfaz 
+        para lograr la compatibilidad y la reutilización de las clases no 
+        relacionadas en una aplicación.
+
+        Una desventaja es que a veces se requieren muchas adaptaciones a lo 
+        largo de una cadena de adaptadores para alcanzar el tipo que se 
+        requiere. Otra podría ser que este patrón aumenta innecesariamente 
+        el tamaño del código, ya que la herencia de clases se utiliza menos 
+        y mucho código se duplica innecesariamente entre las clases. 
     \end{enumerate}
 
     % Funcionalidad del programa.
@@ -70,6 +84,20 @@
         \bibitem{2}
         \url{https://www.codeproject.com/tips/468951/decorator-design-pattern-in-java}
         
+        \bibitem{3}
+        \url{https://www.genbeta.com/desarrollo/patrones-de-diseno-decorator}
+
+        \bibitem{4}
+        \url{https://reactiveprogramming.io/blog/es/patrones-de-diseno/adapter}
+
+        \bibitem{5}
+        \url{https://experto.dev/patron-de-diseno-adapter-en-java/}
+
+        \bibitem{6}
+        \url{https://javarevealed.wordpress.com/tag/adapter-pattern/}
+
+        \bibitem{7}
+        \url{https://javarevealed.wordpress.com/tag/adapter-pattern/}
     \end{thebibliography}
 \end{enumerate}
 \end{document}
