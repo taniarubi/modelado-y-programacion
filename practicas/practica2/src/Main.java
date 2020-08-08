@@ -1,218 +1,248 @@
 import java.util.Scanner;
 
-public class Main{
-	public static void main(String[] args){
+public class Main {
+	public static void main(String[] args) {
 
-		//Se crean las 5 pizzas fijas
-		Pizza pizzaCheddarSalchicha = new Pizza("Pizza de Queso Cheddar con Salchicha", "Masa Delgada", "Queso Cheddar", "Salchicha", 155);
-		Producto pizzaCheddarSalchichaAdaptada = new PizzaAdapter(pizzaCheddarSalchicha);
+		/* La baguette. */
+		Baguette baguette;
+		/* Las pizzas del menú. */
+		Pizza pizza1 = new Pizza("Pizza de Queso Chedar con Salchicha", 
+								 "Queso Chedar", "Salchicha", "Masa gruesa", 
+								 150);
 
-		Pizza pizzaCheddarJamon = new Pizza("Pizza de Queso Cheddar con Jamon", "Masa Gruesa", "Queso Cheddar", "Jamon", 140);
-		Producto pizzaCheddarJamonAdaptada = new PizzaAdapter(pizzaCheddarJamon);
+		Producto pizza1adaptada = new PizzaAdapter(pizza1);
 
-		Pizza pizzaCheddarPollo = new Pizza("Pizza de Queso Cheddar con Pollo", "Masa Gruesa", "Queso Cheddar", "Pollo", 165);
-		Producto pizzaCheddarPolloAdaptada = new PizzaAdapter(pizzaCheddarPollo);
+		Pizza pizza2 = new Pizza("Pizza de Queso Chedar con Jamón", 
+								 "Queso Chedar", "Jamón", "Masa gruesa", 130);
+								 
+		Producto pizza2adaptada = new PizzaAdapter(pizza2);
 
-		Pizza pizzaManchegoSalchicha = new Pizza("Pizza de Queso Manchego con Salchicha", "Masa Gruesa", "Queso Manchego", "Salchicha", 160);
-		Producto pizzaManchegoSalchichaAdaptada = new PizzaAdapter(pizzaManchegoSalchicha);
+		Pizza pizza3 = new Pizza("Pizza de Queso Chedar con Pollo", 
+								 "Queso Chedar", "Pollo", "Masa delgada", 140);
+								 
+		Producto pizza3adaptada = new PizzaAdapter(pizza3);
 
-		Pizza pizzaManchegoPollo = new Pizza("Pizza de Queso Manchego con Pollo", "Masa delgada", "Queso Manchego", "Pollo", 150);
-		Producto pizzaManchegoPolloAdaptada = new PizzaAdapter(pizzaManchegoPollo);
+		Pizza pizza4 = new Pizza("Pizza de Queso Manchego con Salchicha", 
+								 "Queso Manchego", "Salchicha", "Masa delgada", 
+								 120);
 
-		// Se crea una Baguette "Base"
-		Baguette baguette = new BaguetteBasica();
+		Producto pizza4adaptada = new PizzaAdapter(pizza4);
 
+		Pizza pizza5 = new Pizza("Pizza de Queso Manchego con Jamón", 
+								 "Queso manchego", "Jamón", "Masa delgada", 110);
+								 
+		Producto pizza5adaptada = new PizzaAdapter(pizza5);
 
-		System.out.println("¡Bienvenido a WaySub!\n"
-							+ "A continuación elija el número del Producto que desea ordenar:\n" 
-							+ "1 -> Pizza\n"
-							+ "2 -> Baguette");
+		System.out.println("¡Bienvenido a WaySub! \n" + "Indique el número del " + 
+						   "producto que desea ordenar: \n" + "1 -> Baguette \n" + 
+						   "2 -> Pizza");
 
 		try {
-			Scanner respuesta01 = new Scanner(System.in);
-			int opc01 = respuesta01.nextInt();
+			Scanner respuesta = new Scanner(System.in);
+			int opcionProducto = respuesta.nextInt();
 
-			while(opc01 > 2){
-				System.out.println("1 Opción inválida.\nIntente nuevamente."); 
-				System.out.println("A continuación elija el número del Producto que desea ordenar:\n" 
-								+ "1 -> Pizza\n"
-								+ "2 -> Baguette");				
-				respuesta01 = new Scanner(System.in);
-				opc01 = respuesta01.nextInt();	
-
-			}
-
-			while(opc01 == 1 || opc01 == 2){
-				if(opc01 == 1){
-					System.out.println("¿Qué tipo de pizza le gustaría Ordenar?\n"
-										+ "Por favor elija el número de la Pizza que le gustaría Ordenar:\n"
-										+ "1 -> Pizza de Queso Cheddar con Salchicha\n"
-										+ "2 -> Pizza de Queso Cheddar con Jamon\n"
-										+ "3 -> Pizza de Queso Cheddar con Pollo\n"
-										+ "4 -> Pizza de Queso Manchego con Salchicha\n"
-										+ "5 -> Pizza de Queso Manchego con Pollo");
-
-					Scanner respuesta02 = new Scanner(System.in);
-					int opc02 = respuesta02.nextInt();
-					
-					switch(opc02){
-						case 1:
-						System.out.println(pizzaCheddarSalchicha.getNombre() + "\n\n"
-							+ pizzaCheddarSalchichaAdaptada.getDescripcion()
-							+ "\n\nTotal: $" + pizzaCheddarSalchichaAdaptada.getCosto()
-							+ "\n\n¡Gracias por su compra! \n\n ¡Vuelva Pronto!");
-							System.exit(0);
-						break;
-
+			switch(opcionProducto) {
+				case 1:
+					System.out.println("\nEscoja el tipo de pan para su " + 
+					                   "baguette:\n" + "1 -> Pan Tradicional\n" + 
+									   "2 -> Pan Integral\n" + 
+									   "3 -> Pan libre de gluten\n");
+					respuesta = new Scanner(System.in);
+					int opcionPan = respuesta.nextInt();
+					switch(opcionPan) {
+						case 1: 
+							baguette = new BaguettePanTradicional();
+							System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+							System.out.println("Costo: $" + baguette.getCosto() + 
+							                   "\n");
+							break;
 						case 2:
-						System.out.println(pizzaCheddarJamon.getNombre() + "\n\n"
-							+ pizzaCheddarSalchichaAdaptada.getDescripcion()
-							+ "\n\nTotal: $" + pizzaCheddarJamonAdaptada.getCosto()
-							+ "\n\n¡Gracias por su compra! \n\n ¡Vuelva Pronto!");
-							System.exit(0);
-						break;
-
+							baguette = new BaguettePanIntegral();
+							System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+							System.out.println("Costo: $" + baguette.getCosto() + 
+							                   "\n");
+							break;
 						case 3: 
-						System.out.println(pizzaCheddarPollo.getNombre() + "\n\n"
-							+ pizzaCheddarPolloAdaptada.getDescripcion()
-							+ "\n\nTotal: $" + pizzaCheddarPolloAdaptada.getCosto()
-							+ "\n\n¡Gracias por su compra! \n\n ¡Vuelva Pronto!");
-							System.exit(0);
-						break;
+							baguette = new BaguettePanLibreDeGluten();
+							System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+							System.out.println("Costo: $" + baguette.getCosto() + 
+							                   "\n");
+							break; 
+						default: 
+							baguette = new BaguettePanTradicional();
+							System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+							System.out.println("Costo: $" + baguette.getCosto() + 
+							                   "\n");
+					}
+
+					int opcionIngrediente = 0; 
+
+					do {
+						System.out.println("Ahora puede elegir los ingredientes para " + 
+									   "su Baguette.\n" + "Por favor, elija los " + 
+									   "ingredientes:\n" + "1 -> Pollo\n" + 
+									   "2 -> Pepperoni\n" + "3 -> Jamón\n" + 
+									   "4 -> Lechuga\n" + "5 -> Jitomate\n" + 
+									   "6 -> Cebolla\n" + "7 -> Mostaza\n" + 
+									   "8 -> Catsup\n" + "9 -> Mayonesa\n" +
+									   "10 -> Terminar de elegir ingredientes\n");
+
+						respuesta = new Scanner(System.in);
+						opcionIngrediente = respuesta.nextInt();
+
+						switch(opcionIngrediente) {
+							case 1: 
+								baguette = new ConPollo(baguette);
+								System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+								System.out.println("Costo: $" + 
+								                   baguette.getCosto() + "\n");
+								break; 
+							case 2:
+								baguette = new ConPepperoni(baguette);
+								System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+								System.out.println("Costo: $" + 
+								                   baguette.getCosto() + "\n");
+								break; 
+							case 3:
+								baguette = new ConJamon(baguette);
+								System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+								System.out.println("Costo: $" + 
+								                   baguette.getCosto() + "\n");
+								break; 
+							case 4:
+								baguette = new ConLechuga(baguette);
+								System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+								System.out.println("Costo: $" + 
+								                   baguette.getCosto() + "\n");
+								break;
+							case 5:
+								baguette = new ConJitomate(baguette);
+								System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+								System.out.println("Costo: $" + 
+								                   baguette.getCosto() + "\n");
+								break; 
+							case 6:
+								baguette = new ConCebolla(baguette);
+								System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+								System.out.println("Costo: $" + 
+								                   baguette.getCosto() + "\n");
+								break;
+							case 7: 
+								baguette = new ConMostaza(baguette);
+								System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+								System.out.println("Costo: $" + 
+								                   baguette.getCosto() + "\n");
+								break;
+							case 8:
+								baguette = new ConCatsup(baguette);
+								System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+								System.out.println("Costo: $" + 
+								                   baguette.getCosto() + "\n");
+								break; 
+							case 9:
+								baguette = new ConMayonesa(baguette);
+								System.out.println("Ingredientes: \n" + 
+							                   baguette.getDescripcion() + "\n");
+								System.out.println("Costo: $" + 
+								                   baguette.getCosto() + "\n");
+								break;
+							case 10:
+								opcionIngrediente = 150;
+								break;
+							default:
+								System.out.println("Ingrediente inválido. Por " + 
+												   "favor, intente de nuevo.");
+								break; 
+						}
+					} while((opcionIngrediente >= 1) && (opcionIngrediente <= 10));
+
+					System.out.println("\nUsted pagará $" + baguette.getCosto() + 
+									   " por una baguette con los siguientes " + 
+									   "ingredientes: \n" + 
+									   baguette.getDescripcion());
+
+					System.out.println("\nGracias por su compra. Bonito día c:");
+					break;
+				case 2:
+					System.out.println("\n¿Cuál es la pizza que le gustaría " + 
+									   "comprar?\n");
+					System.out.println("1 -> Pizza Chedar-Salchicha \n" + 
+									   "2 -> Pizza Chedar-Jamón\n" + 
+									   "3 -> Pizza Chedar-Pollo\n" + 
+									   "4 -> Pizza Manchego-Salchica\n" + 
+									   "5 -> Pizza Manchego-Jamón\n");
+					
+					respuesta = new Scanner(System.in);
+					int opcionPizza = respuesta.nextInt();
+
+					switch(opcionPizza) {
+						case 1:
+							System.out.println("\nUsted pagará $" + 
+											   pizza1adaptada.getCosto() + 
+											   " por una " + pizza1.getNombre() +
+											   " con la siguiente descripción:\n" + 
+											   pizza1adaptada.getDescripcion());
+							break;
+							
+						case 2:
+							System.out.println("\nUsted pagará $" + 
+											   pizza2adaptada.getCosto() + 
+											   " por una " + pizza2.getNombre() + 
+											   " con la siguiente descripción\n" +
+											   pizza2adaptada.getDescripcion());
+							break;
+
+						case 3:
+							System.out.println("\nUsted pagará $" + 
+											   pizza3adaptada.getCosto() + 
+											   " por una " + pizza3.getNombre() + 
+											   " con la siguiente descripción\n" +
+											   pizza3adaptada.getDescripcion());
+							break;
 
 						case 4:
-						System.out.println(pizzaManchegoSalchicha.getNombre() + "\n\n"
-							+ pizzaManchegoSalchichaAdaptada.getDescripcion()
-							+ "\n\nTotal: $" + pizzaManchegoSalchichaAdaptada.getCosto()
-							+ "\n\n¡Gracias por su compra! \n\n ¡Vuelva Pronto!");
-							System.exit(0);
-						break;
+							System.out.println("\nUsted pagará $" + 
+											   pizza4adaptada.getCosto() + 
+											   " por una " + pizza4.getNombre() + 
+											   " con la siguiente descripción\n" +
+											   pizza4adaptada.getDescripcion());
+							break;
 
 						case 5:
-						System.out.println(pizzaManchegoPollo.getNombre() + "\n\n"
-							+ pizzaManchegoPolloAdaptada.getDescripcion()
-							+ "\n\nTotal: $" + pizzaManchegoPolloAdaptada.getCosto()
-							+ "\n\n¡Gracias por su compra! \n\n¡Vuelva Pronto!");
-							System.exit(0);
-						break;
+							System.out.println("\nUsted pagará $" + 
+											   pizza5adaptada.getCosto() + 
+											   " por una " + pizza5.getNombre() + 
+											   " con la siguiente descripción\n" +
+											   pizza5adaptada.getDescripcion());
+							break;
+
+						default:
+							System.out.println("Opción inválida de pizza." + 
+							                   "Por favor, intente de nuevo.");
 					}
-				} 
-				if(opc01 == 2){
-					System.out.println("¿Qué tipo de Pan le gustaría para su Baguette?\n"
-										+ "Por favor elija el tipo de Pan:\n"
-										+ "1 -> Pan de Ajo\n"
-										+ "2 -> Pan de Avena\n"
-										+ "3 -> Pan Integral\n");
 
-					Scanner respuesta03 = new Scanner(System.in);
-					int opc03 = respuesta03.nextInt();
-
-					while(opc03 == 1 || opc03 == 2 || opc03 == 3){
-						switch(opc03){
-							case 1:
-							baguette = new PanAjo(baguette);
-							break;
-
-							case 2:
-							baguette = new PanAvena(baguette);
-							break;
-
-							case 3: 
-							baguette = new PanIntegral(baguette);
-							break;
-						
-						}
-					//}
-
-					//HASTA AQUÍ FUNCIONA BIEN SI ELIGEN UN TIPO DE PAN CORRECTO, SI NO ELIGEN UN TIPO CORRECTO SE CIERRA =( 
-
-					System.out.println("Ahora puede elegir los ingredientes para su Baguette.\n"
-										+ "Por favor elija los ingredientes:\n"
-										+ "1 -> Mayonesa\n"
-										+ "2 -> Catsup\n"
-										+ "3 -> Mostaza\n"
-										+ "4 -> Cebolla\n"
-										+ "5 -> Jitomate\n"
-										+ "6 -> Lechuga\n"
-										+ "7 -> Jamón\n"
-										+ "8 -> Pepperoni\n"
-										+ "9 -> Pollo\n"
-										+ "10 -> Terminar");
-
-					Scanner respuesta04 = new Scanner(System.in);
-					int opc04 = respuesta04.nextInt();
-
-					while(opc04 == 1 || opc04 == 2 || opc04 == 3 || opc04 == 4 || opc04 == 5 || opc04 == 6 || opc04 == 7 || opc04 == 8 || opc04 == 9 || opc04 == 10){
-
-						switch(opc04){ 
-							case 1:
-							baguette = new Mayonesa(baguette);
-							break;
-
-							case 2:
-							baguette = new Catsup(baguette);
-							break;
-
-							case 3:
-							baguette = new Mostaza(baguette);
-							break;
-
-							case 4:
-							baguette = new Cebolla(baguette);
-							break;
-
-							case 5:
-							baguette = new Jitomate(baguette);
-							break;
-
-							case 6:
-							baguette = new Lechuga(baguette);
-							break;
-
-							case 7:
-							baguette = new Jamon(baguette);
-							break;
-
-							case 8:
-							baguette = new Pepperoni(baguette);
-							break;
-
-							case 9:
-							baguette = new Pollo(baguette);
-							break;
-
-							case 10:
-							System.out.println("\n\nSu Baguette:\n\n"
-								+ baguette.getDescripcion()
-								+ "\n\nTotal: $" + baguette.getCosto()
-								+ "\n\n¡Gracias por su compra! \n\n¡Vuelva Pronto!"); //AQUÍ DEBERIA DEJAR DE AGREGAR INGREDIENTES PARA IMPRIMIR EL TICKET
-								System.exit(0);
-							break;
-						}
-
-						System.out.println("Ahora puede elegir los ingredientes para su Baguette.\n"
-										+ "Por favor elija los ingredientes:\n"
-										+ "1 -> Mayonesa\n"
-										+ "2 -> Catsup\n"
-										+ "3 -> Mostaza\n"
-										+ "4 -> Cebolla\n"
-										+ "5 -> Jitomate\n"
-										+ "6 -> Lechuga\n"
-										+ "7 -> Jamón\n"
-										+ "8 -> Pepperoni\n"
-										+ "9 -> Pollo\n"
-										+ "10 -> Terminar");
-						respuesta04 = new Scanner(System.in);
-						opc04 = respuesta04.nextInt();
-					}
-				}
-				
-				}
+					System.out.println("\nGracias por su compra. Bonito día c:");
+					break;
+				default:
+					System.out.println("Opción inválida de producto. Por favor, " + 
+					                   "intente de nuevo. \n");
 			}
 
-		}catch(Exception e) {
-			System.out.println("***Ha ocurrido un error de entrada:***\n"+e+"\nDebes ingresar un valor entero válido! >:c");
+		} catch(Exception e) {
+			System.out.println("Error de entrada. Por favor, introduce una " + 
+			                   "opción válida para el producto.");
 		}
-
 	}
 }

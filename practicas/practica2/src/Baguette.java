@@ -1,12 +1,23 @@
-public abstract class Baguette implements Producto{
+/**
+ * Clase abstracta para el producto Baguette.
+ */
+public abstract class Baguette implements Producto {
+	/* La descripción de la Baguette. */
+	private String descripcion;
+	/* El costo total de la Baguette. */
+	private int costo;
 
-	String descripcion = "";
-	int costo = 0;
-
-	public String getDescripcion(){
+	/**
+	 * Regresa la descripción de la baguette.
+	 * @return la descripción de la baguette.
+	 */
+	public String getDescripcion() {
 		return descripcion;
 	}
 
+	/**
+	 * Regresa el costo total de la baguette.
+	 * @return el costo total de la baguette. 
+	 */
 	public abstract int getCosto();
-	
 }
