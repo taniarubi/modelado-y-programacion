@@ -4,9 +4,9 @@
 public class FabricaLLantas extends AbstractFactory {
 	
 	/**
-	 * Regresa el tipo de componente.
-	 * @param tipoComponente el tipo de componente que 
-	 * @return el tipo de componente.
+	 * Regresa el componente a fabricar.
+	 * @param tipoComponente el tipo de componente a fabricar. 
+	 * @return el tipo de componente a fabricar.
 	 */
 	@Override
 	public Object getComponente(String tipoComponente) {
@@ -14,9 +14,9 @@ public class FabricaLLantas extends AbstractFactory {
 	}
 
 	/**
-	 * Regresa el tipo de llanta. 
-	 * @param tipoLLanta
-	 * @return el tipo de llanta
+	 * Regresa la llanta a fabricar. 
+	 * @param tipoLLanta el tipo de llanta a fabricar.
+	 * @return la llanta a fabricar.
 	 */
 	public LLanta getLLanta(String tipoLLanta) {
 		if(tipoLLanta == null)
@@ -29,6 +29,7 @@ public class FabricaLLantas extends AbstractFactory {
 			return new LLantaOffroad();
 		else if(tipoLLanta.equalsIgnoreCase("oruga"))
 			return new LLantaOruga();
+			
 		return null;
 	}	
 }
