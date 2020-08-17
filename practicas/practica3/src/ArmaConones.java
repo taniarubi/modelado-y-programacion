@@ -1,7 +1,7 @@
 /**
- * Clase para la arma sierra. 
+ * Clase para la arma cañón.
  */
-public class ArmaSierra implements Arma {
+public class ArmaCanones implements Arma {
 	/* El tipo de arma. */
 	private String tipo;
 	/* El costo del arma. */
@@ -12,9 +12,9 @@ public class ArmaSierra implements Arma {
 	/* Crea un arma con tipo, costo y ataque. */
 	@Override
 	public void crearArma() {
-		this.tipo = "Arma Sierra";
-		this.costo = 3000;
-		this.ataque = 55;
+		this.tipo = "Arma Cañones";
+		this.costo = 1200;
+		this.ataque = 25;
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class ArmaSierra implements Arma {
 	}
 
 	/**
-	 * Regresa el costo del arma.
+	 * Regresa el costo del arma. 
 	 * @return el costo del arma.
 	 */
 	@Override
@@ -36,7 +36,7 @@ public class ArmaSierra implements Arma {
 	}
 
 	/**
-	 * Regresa el ataque del arma.
+	 * Regresa el ataque del arma. 
 	 * @return el ataque del arma.
 	 */
 	@Override
