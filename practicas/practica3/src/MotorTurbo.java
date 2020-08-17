@@ -1,7 +1,7 @@
 /**
- * Clase para los motores deportivos.
+ * Clase para los motores turbo.
  */
-public class MotorDeportivo implements Motor {
+public class MotorTurbo implements Motor {
 	/* El tipo de motor. */
 	private String tipo;
 	/* El costo del motor. */
@@ -12,13 +12,13 @@ public class MotorDeportivo implements Motor {
 	/* Crea un motor con tipo, costo y velocidad. */
 	@Override
 	public void crearMotor() {
-		this.tipo = "Motor Deportivo";
-		this.costo = 164649;
-		this.velocidad = 350;
+		this.tipo = "Motor Turbo";
+		this.costo = 120125;
+		this.velocidad = 275;
 	}
 
 	/**
-	 * Regresa el tipo de motor.
+	 * Regresa el tipo de motor. 
 	 * @return el tipo de motor.
 	 */
 	@Override
@@ -27,7 +27,7 @@ public class MotorDeportivo implements Motor {
 	}
 
 	/**
-	 * Regresa el costo del motor.
+	 * Regresa el costo del motor. 
 	 * @return el costo del motor.
 	 */
 	@Override
@@ -36,7 +36,7 @@ public class MotorDeportivo implements Motor {
 	}
 
 	/**
-	 * Regresa la velocidad del motor. 
+	 * Regresa la velocidad del motor.
 	 * @return la velocidad del motor.
 	 */
 	@Override
