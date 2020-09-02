@@ -1,8 +1,7 @@
 /**
  * Clase para crear soldados.
  */
-public class Factory {
-
+public class Factory extends AbstractFactory {
     /**
      * Regresa un soldado, de acuerdo al tipo solicitado.
      * @param nombre el nombre del soldado.
@@ -10,20 +9,23 @@ public class Factory {
      * @param tipo el tipo de soldado que vamos a crear.
      * @return un soldado, de acuerdo al tipo solicitado.
      */
-    public static Soldado getSoldado(String nombre, int id, String tipo) {
+    @Override
+    public Soldado getSoldado(String nombre, long id, int tipo) {
+        Soldado soldado;
+        
         switch(tipo) {
-            case "ARTILLERIA":
-                Soldado soldadoA = new DeArtilleria(nombre, id);
-                return soldadoA;
-            case "CABALLERIA":
-                Soldado soldadoB = new DeCaballeria(nombre, id);
-                return soldadoB;
-            case "INFANTERIA":
-                Soldado soldadoC =  new DeInfanteria(nombre, id);
-                return soldadoC;
+            case ARTILLERIA:
+                soldado = new DeArtilleria(nombre, id);
+                return soldado;
+            case CABALLERIA:
+                soldado = new DeCaballeria(nombre, id);
+                return soldado;
+            case INFANTERIA:
+                soldado =  new DeInfanteria(nombre, id);
+                return soldado;
             default:
-                Soldado soldadoD = null;
-                return soldadoD;
+                soldado = null;
+                return soldado;
         }
     }
 }

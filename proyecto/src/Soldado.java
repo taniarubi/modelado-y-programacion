@@ -1,35 +1,55 @@
 /**
- * Clase abstracta para los soldados.
+ * Interfaz para los soldados.
  */
-public abstract class Soldado {
-
+public interface Soldado {
     /**
      * Regresa el nombre del soldado.
      * @return el nombre del soldado.
      */
-    public abstract String getNombre();
+    public String getNombre();
 
     /**
      * Regresa el ID del soldado.
      * @return el ID del soldado.
      */
-    public abstract long getID();
+    public long getID();
 
     /**
      * Regresa los puntos de vida del soldado.
      * @return los puntos de vida del soldado.
      */
-    public abstract int getPuntos();
+    public int getPuntos();
+
+    /**
+     * Regresa la distancia entre el enemigo y el soldado.
+     * @return la distancia entre el enemigo y el soldado.
+     */
+    public int getDistancia();
+
+    /**
+     * Regresa el daño producido al enemigo.
+     * @return el daño producido al enemigo. 
+     */
+    public int getDaño();
+
+    /**
+     * El soldado ataca al enemigo.
+     */
+    public void atacar();
+
+    /**
+     * El soldado se mueve en dirección al enemigo.
+     */
+    public void mover();
 
     /**
      * Regresa un mensaje con el reporte del soldado.
-     * @return un mensaje con el reporte del soldado.
      */
-    public abstract void getReporte();
+    public void reportar();
 
     /**
      * Regresa la descripción del soldado.
      * @return la descripción del soldado.
      */
-    public abstract String toString();
+    public String toString();
 }
