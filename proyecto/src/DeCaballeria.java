@@ -24,56 +24,29 @@ public class DeCaballeria implements Soldado {
     }
 
     /**
-     * Regresa el nombre del soldado.
-     * @return el nombre del soldado.
+     * Regresa la distancia del soldado con respecto al enemigo.
+     * @return la distancia del soldado con respecto al enemigo.
      */
     @Override
-    public String getNombre() {
-        return nombre;
+    public String getDistancia() {
+        return "El soldado " + this.nombre + " se encuentra a " + 
+               this.distancia + "m. del enemigo.\n";
     }
 
     /**
-     * Regresa el ID del soldado.
-     * @return el ID del soldado.
+     * El soldado ataca al enemigo. Si el soldado logra atacar, regresa el daño
+     * ocasionado al enemigo; en caso contrario, regresa 0. 
+     * @return el daño causado al enemigo.
      */
     @Override
-    public long getID() {
-        return id;
-    }
-
-    /**
-     * Regresa los puntos de vida del soldado.
-     * @return los puntos de vida del soldado.
-     */
-    @Override
-    public int getPuntos() {
-        return puntos;
-    }
-
-    /**
-     * Regresa la distancia entre el enemigo y el soldado.
-     * @return la distancia entre el enemigo y el soldado.
-     */
-    @Override
-    public int getDistancia() {
-        return distancia;
-    }
-
-    /**
-     * Regresa el daño inflijido al enemigo.
-     * @return el daño inflijido al enemigo.
-     */
-    @Override
-    public int getDaño() {
-        return daño;
-    }
-
-    /**
-     * El soldado ataca al enemigo.
-     */
-    @Override
-    public void atacar() {
-        System.out.println(nombre + " ataca al enemigo!");
+    public int atacar() {
+        if(this.distancia == 0) {
+            System.out.println(nombre + " ataca al enemigo!");
+            return daño;
+        } else {
+            System.out.println(nombre + " aún no puede atacar al enemigo."); 
+            return 0;
+        }
     }
 
     /**
@@ -81,28 +54,21 @@ public class DeCaballeria implements Soldado {
      */
     @Override
     public void mover() {
+        System.out.println(nombre + " se ha movido " + distancia + "m.");
         this.distancia -= 5;
     }
 
     /**
      * Regresa un mensaje con el reporte del soldado.
+     * @return un mensaje con el reporte del soldado.
      */
     @Override
-    public void reportar() {
-        System.out.println("¡Soldado de caballería reportándose!");
-    }
-
-    /**
-     * Regresa la descripción del soldado.
-     * @return la descripción del soldado. 
-     */
-    @Override
-	public String toString() {
-        return "Nombre: " + this.getNombre() + "\n" +
-               "- ID: " + this.getID() + "\n" +
-               "- HP: " + this.getPuntos() + "\n" + 
-               "- Distancia: " + this.getDistancia() + "\n" + 
-               "- Daño: " + this.getDaño() + "\n" + 
+    public String reportar() {
+        return "Nombre: " + this.nombre + "\n" +
+               "- ID: " + this.id + "\n" +
+               "- HP: " + this.puntos + "\n" + 
+               "- Distancia: " + this.distancia + "\n" + 
+               "- Daño: " + this.daño + "\n" + 
                "- Tipo: Caballería" + "\n";
-	}
+    }
 }

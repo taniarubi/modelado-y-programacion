@@ -33,8 +33,9 @@ public class Enemigo {
 
     /**
      * Recibe el ataque de un soldado.
+     * @param soldado el soldado que ataca al enemigo.
      */
-    public void recibeAtaque() {
-        System.out.println("");
+    public void recibeAtaque(Soldado soldado) {
+        this.puntos -= soldado.atacar();        
     }
 }

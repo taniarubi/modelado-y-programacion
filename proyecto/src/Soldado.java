@@ -3,39 +3,17 @@
  */
 public interface Soldado {
     /**
-     * Regresa el nombre del soldado.
-     * @return el nombre del soldado.
+     * Regresa la distancia del soldado con respecto a la del enemigo.
+     * @return ls distancia del soldado con respecto a la del enemigo.
      */
-    public String getNombre();
+    public String getDistancia();
 
     /**
-     * Regresa el ID del soldado.
-     * @return el ID del soldado.
+     * El soldado ataca al enemigo. Si el soldado logra atacar, regresa el daño
+     * ocasionado al enemigo; en caso contrario, regresa 0.
+     * @return el daño causado al enemigo.
      */
-    public long getID();
-
-    /**
-     * Regresa los puntos de vida del soldado.
-     * @return los puntos de vida del soldado.
-     */
-    public int getPuntos();
-
-    /**
-     * Regresa la distancia entre el enemigo y el soldado.
-     * @return la distancia entre el enemigo y el soldado.
-     */
-    public int getDistancia();
-
-    /**
-     * Regresa el daño producido al enemigo.
-     * @return el daño producido al enemigo. 
-     */
-    public int getDaño();
-
-    /**
-     * El soldado ataca al enemigo.
-     */
-    public void atacar();
+    public int atacar();
 
     /**
      * El soldado se mueve en dirección al enemigo.
@@ -44,12 +22,7 @@ public interface Soldado {
 
     /**
      * Regresa un mensaje con el reporte del soldado.
+     * @return un mensaje con el reporte del soldado.
      */
-    public void reportar();
-
-    /**
-     * Regresa la descripción del soldado.
-     * @return la descripción del soldado.
-     */
-    public String toString();
+    public String reportar();
 }
