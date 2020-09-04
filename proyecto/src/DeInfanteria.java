@@ -9,9 +9,9 @@ public class DeInfanteria implements Soldado {
     /* Los puntos de vida del soldado. */
     private int puntos = 150;
     /* La distancia entre el enemigo y el soldado. */
-    private int distancia = 35;
+    private int distancia = 80;
     /* El daño que inflige al enemigo. */
-    private int daño = 7;
+    private int daño = 15;
 
     /**
      * Construye un soldado de infantería con nombre, ID y puntos de vida.
@@ -34,41 +34,54 @@ public class DeInfanteria implements Soldado {
     }
 
     /**
-     * El soldado ataca al enemigo. Si el soldado logra atacar, regresa el daño
-     * ocasionado al enemigo; en caso contrario, regresa 0. 
-     * @return el daño causado al enemigo.
+     * El soldado ataca al enemigo. Si la distancia del soldado con 
+     * respecto al enemigo es igual a 0 y el soldado está vivo, entonces
+     * ataca. 
+     * @param enemigo el enemigo a atacar.
      */
     @Override
-    public int atacar() {
-        if(this.distancia == 0) {
-            System.out.println(nombre + " ataca al enemigo!");
-            this.puntos -= 10;
-            return daño;
+    public void atacar(Enemigo enemigo) {
+        if(this.distancia == 0 && this.puntos > 0 && enemigo.getPuntos() >= 0) {
+            System.out.println(this.nombre + " ataca al enemigo con una pistola!");
+            enemigo.recibeAtaque(this.daño);
         } else {
-            System.out.println(nombre + " aún no puede atacar al enemigo."); 
-            return 0;
+            System.out.println(this.nombre + " aún no puede atacar al enemigo."); 
         }
     }
 
     /**
-     * El soldado se mueve en dirección al enemigo.
+     * El soldado se mueve en dirección al enemigo. Si la distancia con 
+     * respecto al enemigo es mayor que cero, entonces se mueve; si la distancia
+     * con respecto al enemigo es igual a 0 entonces sólo se avisa que ya llegó
+     * el soldado junto al enemigo. En caso contrario, no hacemos nada.
      */
     @Override
     public void mover() {
-        System.out.println(nombre + " se ha movido " + distancia + "m.");
-        this.distancia -= 5;
+        if((this.distancia - 10) > 0) {
+            this.distancia -= 10;
+            System.out.println(this.nombre + " se ha movido a pie!");
+            System.out.print(getDistancia());
+        } else if(this.distancia == 0) {
+            System.out.println(nombre + " ya se encuentra junto al enemigo.");
+        } else {
+            this.distancia = 0;
+            System.out.println(this.nombre + " se ha movido a pie!");
+            System.out.println(getDistancia());
+        }
     }
 
     /**
-     * Regresa un mensaje con el reporte del soldado.
+     * El soldado se reporta. Nos indica cuál es su nombre, ID, puntos de vida, 
+     * distancia con respecto al enemigo y el tipo de soldado que es.
      */
     @Override
-    public String reportar() {
-        return "Nombre: " + this.nombre + "\n" +
-               "- ID: " + this.id + "\n" +
-               "- HP: " + this.puntos + "\n" + 
-               "- Distancia: " + this.distancia + "\n" + 
-               "- Daño: " + this.daño + "\n" + 
-               "- Tipo: Infantería" + "\n";
+    public void reportar() {
+        String cadena = "Nombre: " + this.nombre + "\n" +
+                        "- Tipo: Infante\n" +
+                        "- ID: " + this.id + "\n" +
+                        "- HP: " + this.puntos + "\n" + 
+                        "- Distancia: " + this.distancia + "\n";
+
+        System.out.println(cadena);
     }
 }

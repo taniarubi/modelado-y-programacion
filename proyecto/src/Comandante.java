@@ -63,23 +63,24 @@ public class Comandante implements Soldado {
     }
 
     /**
-     * Los soldados subordinados del comandante atacan al enemigo. Si los 
-     * soldados logran atacar, entonces regresa el daño ocasionado al enemigo;
-     * en caso contrario, regresa 0.
-     * @return el daño ocasionado por el ataque de los soldados subordinados 
-     * del comandante.
+     * El soldado ataca al enemigo. Si la distancia del soldado con 
+     * respecto al enemigo es igual a 0 y el soldado está vivo, entonces
+     * ataca. Además, el artillero se causa daño a sí mismo cada vez que éste
+     * realiza un ataque exitosamente.
+     * @param enemigo el enemigo a atacar.
      */
     @Override
-    public int atacar() {
-        int dañoTotal = 0;
+    public void atacar(Enemigo enemigo) {
         for(Soldado soldado: soldados)
-            dañoTotal += soldado.atacar();
-
-        return dañoTotal;
+            soldado.atacar(enemigo);
     }
 
     /**
-     * Los soldados subordinados del comandante se mueven.
+     * Los soldados subordinados del comandante se mueve en dirección al 
+     * enemigo. Si la distancia con respecto al enemigo es mayor que cero, 
+     * entonces el soldado se mueve; si la distancia con respecto al enemigo 
+     * es igual a 0 entonces sólo se avisa que ya llegó el soldado junto al 
+     * enemigo. En caso contrario, no hacemos nada.
      */
     @Override
     public void mover() {
@@ -94,11 +95,8 @@ public class Comandante implements Soldado {
      * comandante.
      */
     @Override
-    public String reportar() {
-        String cadena = "";
+    public void reportar() {
         for(Soldado soldado: soldados)
-            cadena += soldado.reportar();
-
-        return cadena;
+            soldado.reportar();
     }
 }

@@ -5,7 +5,7 @@ public class Enemigo {
     /* El nombre del enemigo. */
     private String nombre;
     /* Los puntos de vida del enemigo. */
-    private int puntos = 500;
+    private int puntos = 1000;
     
     /**
      * Crea un enemigo con nombre y puntos de vida.
@@ -13,14 +13,6 @@ public class Enemigo {
      */
     public Enemigo(String nombre) {
         this.nombre = nombre;
-    }
-
-    /**
-     * Regresa el nombre del enemigo.
-     * @return el nombre del enemigo.
-     */
-    public String getNombre() {
-        return nombre;
     }
 
     /**
@@ -33,9 +25,15 @@ public class Enemigo {
 
     /**
      * Recibe el ataque de un soldado.
-     * @param soldado el soldado que ataca al enemigo.
+     * @param daño el daño inflijido al enemigo por un soldado.
      */
-    public void recibeAtaque(Soldado soldado) {
-        this.puntos -= soldado.atacar();        
+    public void recibeAtaque(int daño) {
+        if((this.puntos - daño) < 0) {
+            this.puntos = 0;
+            System.out.println("HP del enemigo: " + this.puntos);
+        } else {
+        this.puntos -= daño;      
+        System.out.println("HP del enemigo: " + this.puntos);
+        }
     }
 }

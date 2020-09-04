@@ -1,20 +1,31 @@
 import java.util.Scanner;
 
 public class Main {
+
+    /**
+     * Método que se encarga de realizar la parte repetitiva del juego, la cual
+     * inicia desde que se muestra el estado inicial del juego y termina cuando
+     * el enemigo es vencido.
+     * @param enemigo el enemigo a vencer.
+     * @param c1 el primer comandante del usuario.
+     * @param c2 el segundo comandante del usuario.
+     * @param c3 el tercer comandante del usuario.
+     */
     public static void partida(Enemigo enemigo, Comandante c1, Comandante c2, 
                                Comandante c3) {
-        while(enemigo.getPuntos() >= 0) {
-            System.out.println("\nEste es el estado del juego:\n");
-            System.out.println("HP del enemigo: " + enemigo.getPuntos());
-            System.out.println("La distancia de cada uno de los pelotones " + 
-                               "con respecto al enemigo es: ");
-            System.out.println("Pelotón 1:");
-            System.out.println(c1.getDistancia());
-            System.out.println("Pelotón 2:");
-            System.out.println(c2.getDistancia());
-            System.out.println("Pelotón 3:");
-            System.out.println(c3.getDistancia());
-            
+        System.out.println("\n-- Este es el estado inicial del juego --\n");
+        System.out.println("HP del enemigo: " + enemigo.getPuntos());
+        System.out.println("La distancia de cada uno de los pelotones " + 
+                           "con respecto al enemigo es: ");
+        System.out.println("Pelotón 1:");
+        System.out.println(c1.getDistancia());
+        System.out.println("Pelotón 2:");
+        System.out.println(c2.getDistancia());
+        System.out.println("Pelotón 3:");
+        System.out.println(c3.getDistancia());
+
+        while(enemigo.getPuntos() != 0) {    
+            System.out.println("-----------------------------------------------");
             System.out.println("\nAhora que ya conoces el panorama, ¿cuál " + 
                                "acción te gustaría realizar?\n" + 
                                "1. Atacar\n2. Mover\n3. Reportar\n" + 
@@ -26,29 +37,40 @@ public class Main {
 
             switch(accion) {
                 case 1:
-                    c1.atacar();
-                    c2.atacar();
-                    c3.atacar();
+                    System.out.println("\nPelotón 1:");
+                    c1.atacar(enemigo);
+                    System.out.println("\nPelotón 2:");
+                    c2.atacar(enemigo);
+                    System.out.println("\nPelotón 3:");
+                    c3.atacar(enemigo);
                     break;
                 case 2:
+                    System.out.println("\nPelotón 1:");
                     c1.mover();
+                    System.out.println("\nPelotón 2:");
                     c2.mover();
+                    System.out.println("\nPelotón 3:");
                     c3.mover();
                     break;
                 case 3:
+                    System.out.println("\nPelotón 1:");
                     c1.reportar();
+                    System.out.println("\nPelotón 2:");
                     c2.reportar();
+                    System.out.println("\nPelotón 3:");
                     c3.reportar();
+                    break;
+                default:
+                    System.out.println("Acción inválida.");
                     break;
             }
         }
+
+        System.out.println("\n\n¡Felicidades, lograste vencer al enemigo!:D");
+        System.out.println("------------- FIN DEL JUEGO -------------");
     }
 
     public static void main(String[] args) {
-        /* Creamos nuestro juego. */
-        Sistema juego = new Sistema("Nivel Final");
-        /* Creamos nuestro usuario. */
-        Usuario usuario = new Usuario("Pata", juego);
         /* Creamos a nuestro enemigo. */
         Enemigo enemigo = new Enemigo("Hércules");
         /* Creamos a los soldados. */
@@ -72,8 +94,8 @@ public class Main {
         Comandante comandante2;
         Comandante comandante3;
 
-        System.out.println("¡Hola " + usuario.getNombre() + "! \nHay 3 " + 
-                           "ejércitos disponibles para elegir: \n");
+        System.out.println("¡Hola Pata!" + "\nHay 3 ejércitos disponibles " + 
+                           "para elegir: \n");
         System.out.println("1. Explorador: Se conforma de 3 pelotones.\n" + 
                            "Pelotón 1: tiene 6 soldados de infantería.\n" + 
                            "Pelotón 2: tiene 1 artillero y 2 soldados de " + 
@@ -142,16 +164,13 @@ public class Main {
                 System.out.println("\nEjército Explorador. Cuentas con el " + 
                                    "siguiente team:");
                 System.out.println("Pelotón 1:");
-                System.out.println(soldado1.reportar() + soldado2.reportar() +
-                                   soldado3.reportar() + soldado4.reportar() + 
-                                   soldado5.reportar() + soldado6.reportar());
+                comandante1.reportar();
+
                 System.out.println("Pelotón 2:");
-                System.out.println(soldado7.reportar() + soldado8.reportar() +
-                                   soldado9.reportar());
+                comandante2.reportar();
+
                 System.out.println("Pelotón 3:");
-                System.out.println(soldado10.reportar() + soldado11.reportar() + 
-                                   soldado12.reportar() + soldado13.reportar() + 
-                                   soldado14.reportar() + soldado15.reportar());
+                comandante3.reportar();
 
                 partida(enemigo, comandante1, comandante2, comandante3);
                 break;
@@ -201,18 +220,14 @@ public class Main {
                 System.out.println("\nEjército Default. Cuentas con el " + 
                                    "siguiente team: ");
                 System.out.println("Pelotón 1:");
-                System.out.println(soldado1.reportar() + soldado2.reportar() + 
-                                   soldado3.reportar() + soldado4.reportar() + 
-                                   soldado5.reportar() + soldado6.reportar());
-                System.out.println("Pelotón 2:");
-                System.out.println(soldado7.reportar() + soldado8.reportar() + 
-                                   soldado9.reportar());
-                System.out.println("Pelotón 3:");
-                System.out.println(soldado10.reportar() + soldado11.reportar() + 
-                                   soldado12.reportar() + soldado13.reportar() + 
-                                   soldado14.reportar() + soldado15.reportar());
+                comandante1.reportar();
 
-                System.out.println(soldado14.atacar());
+                System.out.println("Pelotón 2:");
+                comandante2.reportar();
+
+                System.out.println("Pelotón 3:");
+                comandante3.reportar();
+
                 partida(enemigo, comandante1, comandante2, comandante3);
                 break;
             case 3:
@@ -261,17 +276,13 @@ public class Main {
                 System.out.println("\nEjército Kamikaze. Cuentas con el " + 
                                    "siguiente team:");
                 System.out.println("Pelotón 1:");
-                System.out.println(soldado1.reportar() + soldado2.reportar() +
-                                   soldado3.reportar() + soldado4.reportar() + 
-                                   soldado5.reportar());
+                comandante1.reportar();
+
                 System.out.println("Pelotón 2:");
-                System.out.println(soldado6.reportar() + soldado7.reportar() + 
-                                   soldado8.reportar() + soldado9.reportar() + 
-                                   soldado10.reportar());
+                comandante2.reportar();
+
                 System.out.println("Pelotón 3:");
-                System.out.println(soldado11.reportar() + soldado12.reportar() + 
-                                   soldado13.reportar() + soldado14.reportar() + 
-                                   soldado15.reportar());
+                comandante3.reportar();
 
                 partida(enemigo, comandante1, comandante2, comandante3);
                 break; 
