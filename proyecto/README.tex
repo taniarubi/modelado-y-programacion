@@ -77,11 +77,42 @@
     \begin{itemize}
         \item Factory
         
-        Este patrón lo utilizamos para construir a cada uno de nuestros soldados.
-        \item Composite
-        \item Strategy 
-        \item Observer 
-    \end{itemize}
-\end{enumerate}
+        Este patrón lo utilizamos para construir a cada uno de nuestros 
+        soldados.
 
+        % Patrón de diseño Composite.
+        \item Composite
+
+        Con ayuda de este patrón creamos y manejamos una jerarquía (en forma 
+        de árbol) entre los comandantes y los soldados. Esto resuelve la 
+        comunicación entre éstos dos. 
+
+        La clase \texttt{Componente} en este caso es la interfaz 
+        \texttt{Soldado}, la cual contiene el comportamiento mínimo que debería 
+        tener un soldado. Ésta implementa cuatro clases: \texttt{Comandante}, 
+        \texttt{DeArtillería}, \texttt{DeCaballería} y \texttt{DeInfantería}. 
+        Fue diseñada así ya que todos ellos son soldados, y en particular, para 
+        poder combinarla junto con el patrón \texttt{Strategy} en el caso de 
+        los soldados subordinados. La clase \texttt{Composite} correspondería a 
+        la clase \texttt{Comandante}, ya que éste es el de mayor jerarquía entre 
+        los soldados. Puede agregar, eliminar y obtener la lista con todos los 
+        soldados que tiene como subordinados. Gracias a cómo está implementada
+        la interfaz \texttt{Soldado}, al realizar las acciones propias de un 
+        soldado, éste hace que todos sus soldados subordinados realizen dicha 
+        acción. Finalmente, la clase \texttt{Hoja} corresponde a las clases 
+        \texttt{DeArtillería}, \texttt{DeCaballería} y \texttt{DeInfantería}
+        ya que éstos no contienen a otros elementos.Así, cada uno realiza 
+        la acción que les corresponde, y nada más.
+
+        \item Strategy 
+
+        Este patrón de diseño lo utilizamos para 
+        \item Observer 
+
+        Esta patrón de diseño lo utilizamos para 
+    \end{itemize}
+
+    Para la clase principal \texttt{Main} no utilizamos algún patrón de diseño 
+    ya que considerámos que no era necesario.
+\end{enumerate}
 \end{document}
