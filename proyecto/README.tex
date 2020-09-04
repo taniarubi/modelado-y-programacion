@@ -72,13 +72,27 @@
         \end{verbatim}
     \end{enumerate}
 
+    \newpage
     % Patrones de diseño utilizados.
     \item Patrones de diseño utilizados
     \begin{itemize}
+        % Patrón de diseño Factory.
         \item Factory
-        
-        Este patrón lo utilizamos para construir a cada uno de nuestros 
-        soldados.
+
+        Con ayuda de este patrón podemos delegar la responsabilidad de la 
+        creación de soldados a la clase \texttt{Factory}, para que no seamos 
+        nosotros los que decidamos qué clase instanciaremos; sino que 
+        confiaremos en que \texttt{Factory} nos regrese el soldado que deseamos.
+        \texttt{Factory} decidirá qué \texttt{Soldado} crear por medio de una 
+        condición en tiempo de ejecución.
+
+        Tenemos la clase abstracta \texttt{AbstractFactory}, la cual define el 
+        comportamiento por default de los \texttt{Factory}. La clase 
+        \texttt{Factory} representa una \textit{fábrica} concreta, la cual es 
+        utilizada para la creación, gracias al patrón \texttt{Strategy}, de los 
+        soldados \texttt{DeArtillería}, \texttt{DeCaballería} y 
+        \texttt{DeInfantería}; los cuales corresponden a la clase 
+        \texttt{ConcreteProduct}. 
 
         % Patrón de diseño Composite.
         \item Composite
