@@ -1,0 +1,87 @@
+\documentclass[letterpaper,11pt]{article}
+
+% Soporte para los acentos.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}    
+% Idioma español.
+\usepackage[spanish,mexico, es-tabla]{babel}
+% Soporte de símbolos adicionales (matemáticas)
+\usepackage{multirow}
+\usepackage{amsmath}		
+\usepackage{amssymb}		
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+% Modificamos los márgenes del documento.
+\usepackage[lmargin=2cm,rmargin=2cm,top=2cm,bottom=2cm]{geometry}
+
+\title{Facultad de Ciencias, UNAM \\ Modelado y Programación \\ Proyecto Final}
+\author{Hernández Morales José Ángel \\ No. de cuenta: 315137903 \\ 
+        Rubí Rojas Tania Michelle \\ No. de cuenta: 315121719}
+\date{04 de septiembre de 2020}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    % Descripción del proyecto.
+    \item Descripción del proyecto
+
+    El proyecto final consiste en la simulación de un juego de soldaditos. Al 
+    inicio del juego, podemos elegir entre tres diferentes ejércitos para poder 
+    combatir a un enemigo. Después de que se nos despliega una pantalla con las 
+    características de cada uno de nuestros soldados, inicia el juego. Tenemos 
+    tres acciones disponibles:
+    \begin{itemize}
+        \item Atacar. Al seleccionar esta opción, los comandantes mandarán la 
+        órden de atacar al enemigo. Si la distancia de los soldados con respecto 
+        al enemigo es igual a $0$, entonces pueden atacar.
+
+        \item Mover. Los soldados se encuentran a una distancia inicial del 
+        enemigo, así que al seleccionar esta opción lo que pasa es que los 
+        comandantes mandarán la órden de que los soldados se muevan en dirección 
+        al enemigo.
+
+        \item Reportar. Al seleccionar esta opción, los comandantes mandarán la 
+        órden de reportarse a los soldados. Esto simplemente nos mostrará algunas 
+        características de los soldados, como lo son el nombre, ID, puntos de vida,
+        distancia con respecto al enemigo y el tipo de soldado que es.
+    \end{itemize}
+
+    Esta rutina se repetirá hasta que los puntos de vida del enemigo sean igual 
+    a $0$. En este momento, el juego termina. Para jugar otra partida, bastará 
+    con volver a ejecutar el programación principal.
+
+    % Funcionalidad del programa.
+    \item Funcionalidad del programa
+    \begin{enumerate}
+        \item Primero, debemos posicionarnos dentro de la carpeta \textbf{src}.
+        Aquí se encuentran todas las clases de nuestra práctica.
+
+        \item Compilamos todas nuestras clases.
+        \begin{verbatim}
+            $ javac *.java
+        \end{verbatim}
+
+        \item Ejecutamos nuestro programa principal.
+        \begin{verbatim}
+            $ java Main 
+        \end{verbatim}
+    \end{enumerate}
+
+    % Patrones de diseño utilizados.
+    \item Patrones de diseño utilizados
+    \begin{itemize}
+        \item Factory
+        
+        Este patrón lo utilizamos para construir a cada uno de nuestros soldados.
+        \item Composite
+        \item Strategy 
+        \item Observer 
+    \end{itemize}
+\end{enumerate}
+
+\end{document}
