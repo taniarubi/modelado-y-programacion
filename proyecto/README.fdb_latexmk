@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1599252484 "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.tex" "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.pdf" "README" 1599252588
-  "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.aux" 1599252484 731 52ecbe1d21c7fa5c154507ffcdf64ec9 ""
-  "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.tex" 1599252588 5703 9e0e743e254143990c39157c82985e7c ""
+["pdflatex"] 1599254858 "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.tex" "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.pdf" "README" 1599254858
+  "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.aux" 1599254858 731 52ecbe1d21c7fa5c154507ffcdf64ec9 ""
+  "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.tex" 1599254857 6472 44aaf4ed2eef9b8b0b66795427ec24bc ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1591545468 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1591545468 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm" 1591545468 3584 21b378cca2e40816b0e6d74a4dc98f04 ""
@@ -96,13 +96,13 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1591545468 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1596058196 4855604 a2b69e422d881628e3d9a5db2035053f ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1596058141 2514049 9804ab43306f3ac2d187e6d449d8ef6b ""
-  "README.aux" 1599252484 731 52ecbe1d21c7fa5c154507ffcdf64ec9 "pdflatex"
-  "README.out" 1599252484 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "README.tex" 1599252588 5703 9e0e743e254143990c39157c82985e7c ""
+  "README.aux" 1599254858 731 52ecbe1d21c7fa5c154507ffcdf64ec9 "pdflatex"
+  "README.out" 1599254858 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "README.tex" 1599254857 6472 44aaf4ed2eef9b8b0b66795427ec24bc ""
   (generated)
-  "README.out"
   "README.aux"
-  "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.pdf"
-  "README.log"
-  "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.log"
   "README.pdf"
+  "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.log"
+  "README.out"
+  "README.log"
+  "/home/taniarubi/Documents/fciencias/intersemestral/modelado-y-programacion/proyecto/README.pdf"

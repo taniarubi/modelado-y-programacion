@@ -120,9 +120,21 @@
         corresponden a las clases \texttt{DeArtillería}, \texttt{DeCaballería}
         y \texttt{DeInfantería}. 
 
-        \item Observer 
+        % Patrón de diseño Observer.
+        \item Observer
 
-        Esta patrón de diseño lo utilizamos para 
+        Con ayuda de este patrón podemos notificar a los comandantes cuando 
+        la acción que quiere realizar el usuario cambia. Esto resuelve la 
+        comunicación entre el usuario y los comandantes (los cuales, a su vez,
+        le comunicarán a sus soldados subordinados la acción que deseea el 
+        usuario).
+
+        Tenemos las interfaces \texttt{Sujeto} y \texttt{Observador}, las cuales 
+        implementan las clases \texttt{Usuario} y \texttt{Comandante}, 
+        respectivamente. La clase \texttt{Usuario} puede agregar, eliminar y 
+        notificar a los observadores, que en este caso se tratan de los 
+        comandantes. Éstos a su vez, logran notificar a los soldados la acción 
+        que deben realizar, de acuerdo a los deseos del usuario.
     \end{itemize}
 
     Para la clase principal \texttt{Main} no utilizamos algún patrón de diseño 
