@@ -6,26 +6,27 @@ public class Main {
      * Método que se encarga de realizar la parte repetitiva del juego, la cual
      * inicia desde que se muestra el estado inicial del juego y termina cuando
      * el enemigo es vencido.
+     * @param usuario el usuario que controla el juego.
      * @param enemigo el enemigo a vencer.
      * @param c1 el primer comandante del usuario.
      * @param c2 el segundo comandante del usuario.
      * @param c3 el tercer comandante del usuario.
      */
-    public static void partida(Enemigo enemigo, Comandante c1, Comandante c2, 
-                               Comandante c3) {
+    public static void partida(Usuario usuario, Enemigo enemigo, Comandante c1, 
+                               Comandante c2, Comandante c3) {
+
+        /* Mostramos la información general de todos los soldados. */
+        usuario.notificar(3, enemigo);
+        /* Mostramos la información del estado inicial del juego. */
         System.out.println("\n-- Este es el estado inicial del juego --\n");
         System.out.println("HP del enemigo: " + enemigo.getPuntos());
         System.out.println("La distancia de cada uno de los pelotones " + 
                            "con respecto al enemigo es: ");
-        System.out.println("Pelotón 1:");
-        System.out.println(c1.getDistancia());
-        System.out.println("Pelotón 2:");
-        System.out.println(c2.getDistancia());
-        System.out.println("Pelotón 3:");
-        System.out.println(c3.getDistancia());
+        /* Mostramos la distancia de cada uno de los soldados respecto al enemigo. */
+        usuario.notificar(4, enemigo);
 
         while(enemigo.getPuntos() != 0) {    
-            System.out.println("-----------------------------------------------");
+            System.out.println("****************************************************");
             System.out.println("\nAhora que ya conoces el panorama, ¿cuál " + 
                                "acción te gustaría realizar?\n" + 
                                "1. Atacar\n2. Mover\n3. Reportar\n" + 
@@ -35,35 +36,7 @@ public class Main {
             Scanner sc = new Scanner(System.in);
             int accion = sc.nextInt();
 
-            switch(accion) {
-                case 1:
-                    System.out.println("\nPelotón 1:");
-                    c1.atacar(enemigo);
-                    System.out.println("\nPelotón 2:");
-                    c2.atacar(enemigo);
-                    System.out.println("\nPelotón 3:");
-                    c3.atacar(enemigo);
-                    break;
-                case 2:
-                    System.out.println("\nPelotón 1:");
-                    c1.mover();
-                    System.out.println("\nPelotón 2:");
-                    c2.mover();
-                    System.out.println("\nPelotón 3:");
-                    c3.mover();
-                    break;
-                case 3:
-                    System.out.println("\nPelotón 1:");
-                    c1.reportar();
-                    System.out.println("\nPelotón 2:");
-                    c2.reportar();
-                    System.out.println("\nPelotón 3:");
-                    c3.reportar();
-                    break;
-                default:
-                    System.out.println("Acción inválida.");
-                    break;
-            }
+            usuario.notificar(accion, enemigo);
         }
 
         System.out.println("\n\n¡Felicidades, lograste vencer al enemigo!:D");
@@ -71,6 +44,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        /* Creamos nuestro usuario. */
+        Usuario usuario = new Usuario("Pata");
         /* Creamos a nuestro enemigo. */
         Enemigo enemigo = new Enemigo("Hércules");
         /* Creamos a los soldados. */
@@ -94,8 +69,8 @@ public class Main {
         Comandante comandante2;
         Comandante comandante3;
 
-        System.out.println("¡Hola Pata!" + "\nHay 3 ejércitos disponibles " + 
-                           "para elegir: \n");
+        System.out.println("¡Hola " + usuario.getNombre() + " !" + 
+                           "\nHay 3 ejércitos disponibles para elegir: \n");
         System.out.println("1. Explorador: Se conforma de 3 pelotones.\n" + 
                            "Pelotón 1: tiene 6 soldados de infantería.\n" + 
                            "Pelotón 2: tiene 1 artillero y 2 soldados de " + 
@@ -126,7 +101,7 @@ public class Main {
                 soldado5 = factory.getSoldado("Leo", 12349, Factory.INFANTERIA);
                 soldado6 = factory.getSoldado("Alex", 12340, Factory.INFANTERIA);
                 /* El comandante corresponde al primer soldado. */
-                comandante1 = new Comandante("Juan", 12345);
+                comandante1 = new Comandante("Juan", 12345, usuario);
                 /* Agregamos los soldados subordinados del comandante. */
                 comandante1.agregarSoldado(soldado1); // Es subordinado de sí mismo.
                 comandante1.agregarSoldado(soldado2);
@@ -139,7 +114,7 @@ public class Main {
                 soldado8 = factory.getSoldado("Cleto", 23457, Factory.CABALLERIA);
                 soldado9 = factory.getSoldado("Bob", 23458, Factory.CABALLERIA);
                 /* El comandante corresponde al séptimo soldado. */
-                comandante2 = new Comandante("Rojo", 23459);
+                comandante2 = new Comandante("Rojo", 23459, usuario);
                 /* Agregamos los soldados subordinados del comandante. */
                 comandante2.agregarSoldado(soldado7); // Es subordinado de sí mismo.
                 comandante2.agregarSoldado(soldado8);
@@ -152,7 +127,7 @@ public class Main {
                 soldado14 = factory.getSoldado("Marco", 23452, Factory.CABALLERIA);  
                 soldado15 = factory.getSoldado("Jorge", 23453, Factory.CABALLERIA);
                 /* El comandante corresponde al décimo soldado. */
-                comandante3 = new Comandante("Pascal", 23408);
+                comandante3 = new Comandante("Pascal", 23408, usuario);
                 /* Agregamos los soldados subordinados del comandante. */
                 comandante3.agregarSoldado(soldado10); // Es subordinado de sí mismo.
                 comandante3.agregarSoldado(soldado11);
@@ -163,16 +138,9 @@ public class Main {
 
                 System.out.println("\nEjército Explorador. Cuentas con el " + 
                                    "siguiente team:");
-                System.out.println("Pelotón 1:");
-                comandante1.reportar();
-
-                System.out.println("Pelotón 2:");
-                comandante2.reportar();
-
-                System.out.println("Pelotón 3:");
-                comandante3.reportar();
-
-                partida(enemigo, comandante1, comandante2, comandante3);
+                
+                /* Iniciamos la partida. */
+                partida(usuario, enemigo, comandante1, comandante2, comandante3);
                 break;
             case 2:
                 soldado1 = factory.getSoldado("David", 34567, Factory.INFANTERIA);
@@ -182,7 +150,7 @@ public class Main {
                 soldado5 = factory.getSoldado("Carlos", 34561, Factory.INFANTERIA);
                 soldado6 = factory.getSoldado("Cristian", 34562, Factory.INFANTERIA);
                 /* El comandante corresponde al primer soldado. */
-                comandante1 = new Comandante("David", 34567);
+                comandante1 = new Comandante("David", 34567, usuario);
                 /* Agregamos los soldados subordinados del comandante. */
                 comandante1.agregarSoldado(soldado1); // Es subordinado de sí mismo.
                 comandante1.agregarSoldado(soldado2);
@@ -195,7 +163,7 @@ public class Main {
                 soldado8 = factory.getSoldado("Santiago", 34564, Factory.ARTILLERIA);
                 soldado9 = factory.getSoldado("Sebastián", 34565, Factory.ARTILLERIA);
                 /* El comandante corresponde al séptimo soldado. */
-                comandante2 = new Comandante("Brayan", 34563);
+                comandante2 = new Comandante("Brayan", 34563, usuario);
                 /* Agregamos los soldados subordinados del comandante. */
                 comandante2.agregarSoldado(soldado7); // Es subordinado de sí mismo.
                 comandante2.agregarSoldado(soldado8);
@@ -208,7 +176,7 @@ public class Main {
                 soldado14 = factory.getSoldado("Edgar", 45672, Factory.CABALLERIA);
                 soldado15 = factory.getSoldado("Emilio", 45673, Factory.CABALLERIA);
                 /* El comandante corresponde al décimo soldado. */
-                comandante3 = new Comandante("Jaime", 45678);
+                comandante3 = new Comandante("Jaime", 45678, usuario);
                 /* Agregamos los soldados subordinados del comandante. */
                 comandante3.agregarSoldado(soldado10); // Es subordinado de sí mismo.
                 comandante3.agregarSoldado(soldado11);
@@ -219,16 +187,9 @@ public class Main {
 
                 System.out.println("\nEjército Default. Cuentas con el " + 
                                    "siguiente team: ");
-                System.out.println("Pelotón 1:");
-                comandante1.reportar();
 
-                System.out.println("Pelotón 2:");
-                comandante2.reportar();
-
-                System.out.println("Pelotón 3:");
-                comandante3.reportar();
-
-                partida(enemigo, comandante1, comandante2, comandante3);
+                /* Iniciamos la partida. */
+                partida(usuario, enemigo, comandante1, comandante2, comandante3);
                 break;
             case 3:
                 soldado1 = factory.getSoldado("Joaquín", 56789, Factory.INFANTERIA);
@@ -237,7 +198,7 @@ public class Main {
                 soldado4 = factory.getSoldado("Heliud", 56783, Factory.INFANTERIA);
                 soldado5 = factory.getSoldado("Víctor", 56784, Factory.INFANTERIA);
                 /* El comandante corresponde al primer soldado. */
-                comandante1 = new Comandante("Joaquín", 56789);
+                comandante1 = new Comandante("Joaquín", 56789, usuario);
                 /* Agregamos los soldados subordinados del comandante. */
                 comandante1.agregarSoldado(soldado1); // Es subordinado de sí mismo.
                 comandante1.agregarSoldado(soldado2);
@@ -251,7 +212,7 @@ public class Main {
                 soldado9 = factory.getSoldado("Hugo", 56788, Factory.INFANTERIA);
                 soldado10 = factory.getSoldado("Joel", 67890, Factory.INFANTERIA);
                 /* El comandante corresponde al sexto soldado. */
-                comandante2 = new Comandante("Iván", 56785);
+                comandante2 = new Comandante("Iván", 56785, usuario);
                 /* Agregamos los soldados subordinados del comandante. */
                 comandante2.agregarSoldado(soldado6); // Es subordinado de sí mismo.
                 comandante2.agregarSoldado(soldado7);
@@ -265,7 +226,7 @@ public class Main {
                 soldado14 = factory.getSoldado("Emiliano", 67894, Factory.CABALLERIA);
                 soldado15 = factory.getSoldado("Galindo", 67895, Factory.CABALLERIA);
                 /* El comandante corresponde al undécimo soldado. */
-                comandante3 = new Comandante("David", 34567);
+                comandante3 = new Comandante("David", 34567, usuario);
                 /* Agregamos los soldados subordinados del comandante. */
                 comandante3.agregarSoldado(soldado11); // Es subordinado de sí mismo.
                 comandante3.agregarSoldado(soldado12);
@@ -275,16 +236,9 @@ public class Main {
                     
                 System.out.println("\nEjército Kamikaze. Cuentas con el " + 
                                    "siguiente team:");
-                System.out.println("Pelotón 1:");
-                comandante1.reportar();
 
-                System.out.println("Pelotón 2:");
-                comandante2.reportar();
-
-                System.out.println("Pelotón 3:");
-                comandante3.reportar();
-
-                partida(enemigo, comandante1, comandante2, comandante3);
+                /* Iniciamos la partida. */
+                partida(usuario, enemigo, comandante1, comandante2, comandante3);
                 break; 
             default:
                 System.out.println("Opción de pelotón inválida.");
