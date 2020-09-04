@@ -104,9 +104,22 @@
         ya que éstos no contienen a otros elementos.Así, cada uno realiza 
         la acción que les corresponde, y nada más.
 
+        % Patrón de diseño Strategy.
         \item Strategy 
 
-        Este patrón de diseño lo utilizamos para 
+        Con ayuda de este patrón creamos un \texttt{Soldado} que pueda 
+        comportarse de formas diferentes (lo cual se define en el momento 
+        de su creación). Aunque todos los soldados realizarán las acciones 
+        mínimas correspondientes a un \texttt{Soldado}, ellos lo hacen de 
+        diferente modo, dependiendo de sí es un soldado \texttt{DeArtillería}, 
+        un soldado \texttt{DeCaballería} o un soldado de \texttt{DeInfantería}.
+
+        La interfaz \texttt{Estrategia} corresponde a la interfaz 
+        \texttt{Soldado}. Ésta contiene el comportamiento mínimo que debe 
+        realizar cada soldado. Las clases \texttt{EstrategiaConcretaN}
+        corresponden a las clases \texttt{DeArtillería}, \texttt{DeCaballería}
+        y \texttt{DeInfantería}. 
+
         \item Observer 
 
         Esta patrón de diseño lo utilizamos para 
