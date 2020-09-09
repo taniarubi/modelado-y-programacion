@@ -19,4 +19,6 @@ Durante este curso se realizaron:
 1. Prácticas
    * Práctica 1: Implementación de los patrones de diseño Strategy y Observer. 
    * Práctica 2: Implementación de los patrones de diseño Decorator y Adapter. 
+   * Práctica 3: Implementación del patrón de diseño Abstract Factory. 
 2. Proyectos
+   * Simulación de un videojuego (un sólo jugador).
