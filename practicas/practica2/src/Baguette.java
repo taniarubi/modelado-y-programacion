@@ -12,12 +12,12 @@ public abstract class Baguette implements Producto {
      * @return la descripción de la baguette.
      */
     public String getDescripcion() {
-		return descripcion;
-	}
-
-	/**
-	 * Regresa el costo total de la baguette.
-	 * @return el costo total de la baguette. 
-	 */
-	public abstract int getCosto();
+        return descripcion;
+    }
+	
+    /**
+     * Regresa el costo total de la baguette.
+     * @return el costo total de la baguette. 
+     */
+    public abstract int getCosto();
 }
