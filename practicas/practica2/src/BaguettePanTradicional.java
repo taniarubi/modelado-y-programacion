@@ -24,7 +24,7 @@ public class BaguettePanTradicional extends Baguette {
 	}
 
 	/**
-	 * Regresa el costo de la baguette con pan tradicional.
+	 * Regresa el costo de la Baguette con pan tradicional.
 	 * @return el costo de la Baguette con pan tradicional.
 	 */
 	@Override
