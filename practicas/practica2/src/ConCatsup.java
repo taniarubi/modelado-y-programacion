@@ -14,8 +14,8 @@ public class ConCatsup extends Baguette {
 	}
 
 	/**
-	 * Regresa la descripción de la baguette con catsup.
-	 * @return la descripción de la baguette con catsup.
+	 * Regresa la descripción de la Baguette con catsup.
+	 * @return la descripción de la Baguette con catsup.
 	 */
 	@Override
 	public String getDescripcion() {
@@ -23,8 +23,8 @@ public class ConCatsup extends Baguette {
 	}
 
 	/**
-	 * Regresa el costo de la baguette con catsup.
-	 * @return el costo de la baguette con catsup.
+	 * Regresa el costo de la Baguette con catsup.
+	 * @return el costo de la Baguette con catsup.
 	 */
 	@Override
 	public int getCosto() {
