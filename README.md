@@ -12,6 +12,7 @@ Ayudante Lab: José Ricardo Rosas Bocanegra
 #### Entorno 
 * `SO: Manjaro Linux 20.0.3`
 * `JAVA: Java(TM) SE Runtime Environment (build 14.0.2+12-46)`
+* `pdfTex: Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux)`
 
 #### Contenido 
 
